@@ -30,3 +30,19 @@ func (d deck) print() {
 		fmt.Println(i, card)
 	}
 }
+
+// Clarity to the method deal() below.
+// For example: fruits := []string{"apple", "orange", "banana", "grape"}
+// fruits[0] = "apple", fruits[1] = "orange", etc.
+// There are two ways to use slice range, they are both equivalent, most people prefer the second method
+// The number 2 here means that it is up to index number 2 but not including the value at index number 2
+// For example:
+// fruits[0:2] = {"apple", "orange"} or fruits[:2] = {"apple", "orange"}
+// We can also use it the other way
+// For example:
+// fruits[2:] = {"banana", "grape"}
+// In our case, the handSize is the number '2' in the example!
+// NEW: you can return multiple values in GO!
+func deal(d deck, handSize int) (deck, deck) {
+	return d[:handSize], d[handSize:]
+}
