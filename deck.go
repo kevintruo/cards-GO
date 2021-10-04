@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"io/ioutil"
 	"strings"
 )
 
@@ -54,4 +55,9 @@ func deal(d deck, handSize int) (deck, deck) {
 // Learned about helper function Join, basically adding a delimeter to the slice
 func (d deck) toString() string {
 	return strings.Join([]string(d), ",")
+}
+
+// Creat a saveToFile function to write into a new file a deck of card
+func (d deck) saveToFile(filename string) error {
+	return ioutil.WriteFile(filename, []byte(d.toString()), 0666)
 }
